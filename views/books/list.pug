@@ -14,21 +14,21 @@
 extends ../base.pug
 
 block content
-  h3 Books
+  h3 Ptas
 
-  a(href="/books/add", class='btn btn-success btn-sm')
+  a(href="/ptas/add", class='btn btn-success btn-sm')
     i.glyphicon.glyphicon-plus
-    span  Add book
+    span  Add pta
 
-  each book in books
+  each pta in ptas
     .media
-      a(href=`/books/${book.id}`)
+      a(href=`/ptas/${pta.id}`)
         .media-body
-          h4= book.title
-          p= book.author
-
-  if !books.length
-    p No books found.
+          h4= pta.pta_num
+          p=pta.contribuinte
+        
+  if !ptas.length
+    p No ptas found.
 
   if nextPageToken
     nav

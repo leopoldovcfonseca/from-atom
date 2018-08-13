@@ -14,19 +14,43 @@
 extends ../base.pug
 
 block content
-  h3 #{action} book
+  h3 #{action} pta
   form(method="POST")
     .form-group
-      label(for="title") Title
-      input.form-control(type="text", name="title", id="title", value=book.title)
+      label(for="pta_num") PTA_NUM
+      input.form-control(type="text", name="pta_num", id="pta_num", value=pta.pta_num)
     .form-group
-      label(for="author") Author
-      input.form-control(type="text", name="author", id="author", value=book.author)
+      label(for="contribuinte") CONTRIBUINTE
+      input.form-control(type="text", name="contribuinte", id="contribuinte", value=pta.contribuinte)
     .form-group
-      label(for="publishedDate") Date Published
-      input.form-control(type="text", name="publishedDate", id="publishedDate", value=book.publishedDate)
+      label(for="procurador") PROCURADOR
+      input.form-control(type="text", name="procurador", id="procurador", value=pta.procurador)
     .form-group
-      label(for="description") Description
-      input.form-control(type="text", name="description", id="description", value=book.description)
+      label(for="r3") R3
+      input.form-control(type="text", name="r3", id="r3", value=pta.r3)    
+    .form-group
+      label(for="execucao_antiga") EXECUCAO_ANTIGA
+      input.form-control(type="text", name="execucao_antiga", id="execucao_antiga", value=pta.execucao_antiga)
+    .form-group
+      label(for="proc_antigo") PROC_ANTIGO
+      input.form-control(type="text", name="proc_antigo", id="proc_antigo", value=pta.proc_antigo)
+    .form-group
+        label(for="execucao_nova") EXECUCAO_NOVA
+        input.form-control(type="text", name="execucao_nova", id="execucao_nova", value=pta.execucao_nova)
+    .form-group
+      label(for="proc_novo") PROC_NOVO
+      input.form-control(type="text", name="proc_novo", id="proc_novo", value=pta.proc_novo)
+    .form-group
+      label(for="data_emissao_ai") DATA_EMISSAO_AI
+      input.form-control(type="text", name="data_emissao_ai", id="data_emissao_ai", value=pta.data_emissao_ai)
+    .form-group
+      label(for="fase") FASE
+      input.form-control(type="text", name="fase", id="fase", value=pta.fase)
+    .form-group
+      label(for="localizacao_pta") LOCALIZACAO_PTA
+      input.form-control(type="text", name="localizacao_pta", id="localizacao_pta", value=pta.localizacao_pta)
+    .form-group
+      label(for="situacao") SITUACAO
+      input.form-control(type="text", name="situacao", id="situacao", value=pta.situacao)
     .form-group
     button.btn.btn-success(type="submit") Save

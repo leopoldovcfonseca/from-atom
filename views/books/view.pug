@@ -14,21 +14,21 @@
 extends ../base.pug
 
 block content
-  h3 Book
+  h3 Pta
     small
 
   .btn-group
-    a(href=`/books/${book.id}/edit`, class='btn btn-primary btn-sm')
+    a(href=`/ptas/${pta.id}/edit`, class='btn btn-primary btn-sm')
       i.glyphicon.glyphicon-edit
-      span  Edit book
-    a(href=`/books/${book.id}/delete`, class='btn btn-danger btn-sm')
+      span  Edit pta
+    a(href=`/ptas/${pta.id}/delete`, class='btn btn-danger btn-sm')
       i.glyphicon.glyphicon-trash
-      span  Delete book
+      span  Delete pta
 
   .media
     .media-body
-      h4= book.title
+      h4= pta.pta_num
         | &nbsp;
-        small= book.publishedDate
-      h5 By #{book.author||'unknown'}
-      p= book.description
+        small= pta.situacao
+      h5 By #{pta.localizao_pta||'unknown'}
+      p= pta.situacao
