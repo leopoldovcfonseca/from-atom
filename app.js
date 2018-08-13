@@ -24,13 +24,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('trust proxy', true);
 
-// Books
-app.use('/books', require('./books/crud'));
-app.use('/api/books', require('./books/api'));
+//ptas
+app.use('/ptas', require('./ptas/crud'));
+app.use('/api/ptas', require('./ptas/api'));
 
 // Redirect root to /books
 app.get('/', (req, res) => {
-  res.redirect('/books');
+  res.redirect('/ptas');
 });
 
 // Basic 404 handler
