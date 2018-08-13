@@ -32,9 +32,9 @@ router.use((req, res, next) => {
 });
 
 /**
- * GET /books
+ * GET /ptas
  *
- * Display a page of books (up to ten at a time).
+ * Display a page of ptas (up to ten at a time).
  */
 router.get('/', (req, res, next) => {
   getModel().list(10, req.query.pageToken, (err, entities, cursor) => {
@@ -42,31 +42,31 @@ router.get('/', (req, res, next) => {
       next(err);
       return;
     }
-    res.render('books/list.pug', {
-      books: entities,
+    res.render('ptas/list.pug', {
+      ptas: entities,
       nextPageToken: cursor
     });
   });
 });
 
 /**
- * GET /books/add
+ * GET /ptas/add
  *
- * Display a form for creating a book.
+ * Display a form for creating a pta.
  */
 // [START add_get]
 router.get('/add', (req, res) => {
-  res.render('books/form.pug', {
-    book: {},
+  res.render('ptas/form.pug', {
+    pta: {},
     action: 'Add'
   });
 });
 // [END add_get]
 
 /**
- * POST /books/add
+ * POST /ptas/add
  *
- * Create a book.
+ * Create apta.
  */
 // [START add_post]
 router.post('/add', (req, res, next) => {
@@ -84,32 +84,32 @@ router.post('/add', (req, res, next) => {
 // [END add_post]
 
 /**
- * GET /books/:id/edit
+ * GET /ptas/:id/edit
  *
- * Display a book for editing.
+ * Display a pta for editing.
  */
-router.get('/:book/edit', (req, res, next) => {
-  getModel().read(req.params.book, (err, entity) => {
+router.get('/:pta/edit', (req, res, next) => {
+  getModel().read(req.params.pta, (err, entity) => {
     if (err) {
       next(err);
       return;
     }
-    res.render('books/form.pug', {
-      book: entity,
+    res.render('ptas/form.pug', {
+      pta: entity,
       action: 'Edit'
     });
   });
 });
 
 /**
- * POST /books/:id/edit
+ * POST /ptas/:id/edit
  *
- * Update a book.
+ * Update a pta.
  */
-router.post('/:book/edit', (req, res, next) => {
+router.post('/:pta/edit', (req, res, next) => {
   const data = req.body;
 
-  getModel().update(req.params.book, data, (err, savedData) => {
+  getModel().update(req.params.pta, data, (err, savedData) => {
     if (err) {
       next(err);
       return;
@@ -119,29 +119,29 @@ router.post('/:book/edit', (req, res, next) => {
 });
 
 /**
- * GET /books/:id
+ * GET /ptas/:id
  *
- * Display a book.
+ * Display a pta.
  */
-router.get('/:book', (req, res, next) => {
-  getModel().read(req.params.book, (err, entity) => {
+router.get('/:pta', (req, res, next) => {
+  getModel().read(req.params.pta, (err, entity) => {
     if (err) {
       next(err);
       return;
     }
-    res.render('books/view.pug', {
-      book: entity
+    res.render('ptas/view.pug', {
+      pta: entity
     });
   });
 });
 
 /**
- * GET /books/:id/delete
+ * GET /ptas/:id/delete
  *
- * Delete a book.
+ * Delete a pta
  */
-router.get('/:book/delete', (req, res, next) => {
-  getModel().delete(req.params.book, (err) => {
+router.get('/:pta/delete', (req, res, next) => {
+  getModel().delete(req.params.pta, (err) => {
     if (err) {
       next(err);
       return;
@@ -151,7 +151,7 @@ router.get('/:book/delete', (req, res, next) => {
 });
 
 /**
- * Errors on "/books/*" routes.
+ * Errors on "ptas/*" routes.
  */
 router.use((err, req, res, next) => {
   // Format error and forward to generic error handler for logging and
